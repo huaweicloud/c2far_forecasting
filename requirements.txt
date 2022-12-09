@@ -1,0 +1,13 @@
+certifi @ file:///opt/conda/conda-bld/certifi_1663615672595/work/certifi
+cycler==0.11.0
+fonttools==4.37.3
+kiwisolver==1.4.4
+matplotlib==3.5.3
+numpy==1.21.6
+packaging==21.3
+Pillow==9.2.0
+pyparsing==3.0.9
+python-dateutil==2.8.2
+six==1.16.0
+torch==1.12.1
+typing_extensions==4.3.0
