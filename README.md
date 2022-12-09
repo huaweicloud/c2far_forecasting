@@ -14,8 +14,8 @@ The input data is in the format described in [INPUT.md](INPUT.md).
 
 This project is maintained by:
 
-* Shane Bergsma (`sbergsma`)
-* Tim Zeyl (`zeylt`)
+* Shane Bergsma (sbergsma)
+* Tim Zeyl (zeylt)
 
 ## Contact
 
