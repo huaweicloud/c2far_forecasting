@@ -1,6 +1,6 @@
 # c2far_forecasting
 
-This repository contains the trace generation code for the paper
+This repository contains code for the paper
 
 > Bergsma S., Zeyl T., Anaraki, J. R., and Guo L., "C2FAR: Coarse-to-Fine Autoregressive Networks for Precise Probabilistic Forecasting", Advances in Neural Information Processing Systems 35, 2022
 
