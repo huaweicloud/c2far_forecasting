@@ -1,0 +1,72 @@
+##### File organization
+
+The following files are stored split across multiple parts:
+
+azure.vcpus.5min.dedupe
+azure.memory.5min.dedupe
+azure.5min.2016~288.train
+azure.5min.2016~288.dev
+azure.5min.2016~288.test 
+
+Each of these files can be created by contatenating the above
+filenames as follows:
+
+cat azure_demand/file_parts/$filename.* > azure_demand/$filename
+
+Note: this is done automatically in the first part of the
+train_test_sutranets.sh script.
+
+
+##### The fields in azure.{vcpus,memory}.5min.dedupe:
+
+This file provides the time series.  Most of the meta data is unused
+in the shared codebase.
+
+1. linux epoch timestamp, here always 2588400
+
+2. aggregation here always "demand", although note "stopincludedmax"
+and "stopreleasedmin" versions of series are included but not
+distinguished.
+
+3. availability zone, here a dummy value of "az-azure-1a", or ""
+
+4. series type, in {all_host_aggregate,flavor_type_payment,tenant_usage}
+
+5. series subtype, e.g., flavor-type-ratio, or a dummy tenant ID or "All"
+
+6. series sub-subtype, vcpus + flavor-type-ratio or "All" or ""
+
+7. vm category, in {Delay-insensitive,Interactive,Unkown,""}
+
+8. region, here a dummy value of "az-azure-1" or ""
+
+9. resource in {vcpus,memory} (depending on file)
+
+10. sampling period, here 300
+
+11. time series name, in {1.0,All,""}
+
+12. Time series values, as 8628 comma-separated values (~30 days of
+5-minutely readings)
+
+
+##### The fields in azure.1hour~2016~2016~288.{train,dev,test}
+
+This file defines the sequence of windows (conditioning+prediction
+ranges) via "offsets" or "indices" from which we create examples from
+the time series.  Note that a portion of a training prediction range
+may span beyond the edge of the training time period (first 20 days),
+in which case we ignore the prediction target values occurring beyond
+the training time period cutoff.  Similarly, we ignore parts of
+dev/test prediction ranges that span before or after the dev/test time
+periods.
+
+1. LAST DATESTAMP - timestamp of the last element of the window
+extracted at that offset.
+
+2. Line number, line number of file to get window from.
+
+3. Target index (in line), where to begin the window in the line of
+values.
+
+4. Resource file to use, in {0,1} for "vcpus" or "memory"

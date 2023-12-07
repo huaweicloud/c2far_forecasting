@@ -1,0 +1,12 @@
+The time series provided here are adapted versions of the
+publicly-available traces found in the AzurePublicDataset repo on
+GitHub and described in: Cortez, E., Bonde, A., Muzio, A.,
+Russinovich, M., Fontoura, M., and Bianchini, R. Resource central:
+Understanding and predicting workloads for improved resource
+management in large cloud platforms.  In Proceedings of the 26th
+Symposium on Operating Systems Principles (2017), pp. 153-167.
+
+The original data was shared under a Creative Commons
+Attribution 4.0 International Public License:
+
+https://github.com/Azure/AzurePublicDataset/blob/master/LICENSE
